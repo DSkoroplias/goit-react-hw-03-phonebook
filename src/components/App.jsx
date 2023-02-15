@@ -5,6 +5,8 @@ import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import ContactFilter from './ContactFilter/ContactFilter';
 
+import items from './items';
+
 import styles from './app.module.scss';
 
 class App extends Component {
@@ -22,7 +24,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { contacts } = this.state;
-    if (prevState.items.length !== items.length) {
+    if (prevState.items !== items) {
       localStorage.setItem('my-contacts', JSON.stringify(contacts));
     }
   }
